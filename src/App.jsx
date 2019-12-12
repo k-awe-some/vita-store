@@ -24,10 +24,13 @@ const App = () => {
       <img
         src={logo}
         className={
-          logoToggling === true ? "app-logo-static" : "app-logo-animated"
+          logoToggling === true
+            ? "app-logo-static"
+            : "app-logo-static animated jello"
         }
         alt="logo"
-        onClick={toggleLogo}
+        onMouseEnter={toggleLogo}
+        onMouseLeave={toggleLogo}
       />
       <h1>VitaStore</h1>
 
