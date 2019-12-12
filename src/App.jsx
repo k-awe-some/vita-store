@@ -5,6 +5,7 @@ import { products } from "./data/store";
 import "./App.scss";
 
 import Card from "./components/Card/Card";
+import Nav from "./components/Nav/Nav";
 import Loading from "./components/Loading/Loading";
 
 const App = () => {
@@ -30,6 +31,14 @@ const App = () => {
     setState({ ...state, cards: animatedCards });
   };
 
+  const openNav = () => {
+    document.getElementById("myNav").style.width = "100%";
+  };
+
+  const closeNav = () => {
+    document.getElementById("myNav").style.width = "0%";
+  };
+
   return (
     <div className="app">
       <img
@@ -42,8 +51,9 @@ const App = () => {
         alt="logo"
         onMouseEnter={toggleLogo}
         onMouseLeave={toggleLogo}
+        onClick={openNav}
       />
-      <h1>VitaStore</h1>
+      <Nav closeNav={closeNav} />
 
       {state.loading ? (
         <Loading />

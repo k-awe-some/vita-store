@@ -1,0 +1,53 @@
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #000;
+  overflow-x: hidden;
+  transition: 0.5s;
+
+  &-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  a {
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 3rem;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+
+    &:hover,
+    &:focus {
+      color: #fff;
+    }
+  }
+
+  .closebtn {
+    position: absolute;
+    top: 1.2rem;
+    right: 4rem;
+    font-size: 5rem;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 2rem;
+  }
+
+  .overlay .closebtn {
+    font-size: 3rem;
+    top: 1rem;
+    right: 3rem;
+  }
+}
