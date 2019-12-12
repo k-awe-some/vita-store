@@ -8,3 +8,25 @@ body {
   url('/background.jpg') no-repeat center center fixed;
   background-size: cover;
 }
+
+.app {
+  .animated-logo {
+    -webkit-animation: logo-spin infinite 20s linear;
+            animation: logo-spin infinite 20s linear;
+    height: 5rem;
+  }
+
+  .static-logo {
+    height: 5rem;
+  }
+}
+
+@-webkit-keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
