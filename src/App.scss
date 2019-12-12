@@ -9,6 +9,10 @@ body {
 .app {
   padding: 3rem;
 
+  &-header {
+    height: 15vh;
+  }
+
   &-logo-animated {
     -webkit-animation: logo-spin infinite 20s linear;
     animation: logo-spin infinite 20s linear;
@@ -19,6 +23,22 @@ body {
   &-logo-static {
     height: 8rem;
     cursor: pointer;
+  }
+
+  &-menu {
+    position: absolute;
+    top: 10rem;
+    left: 0;
+    right: 0;
+    font-weight: 800;
+    font-size: 3rem;
+    text-shadow: 0px 0px 5px rgba(0, 0, 0, 0.42);
+    color: #fff;
+    cursor: pointer;
+
+    &-hidden {
+      visibility: hidden;
+    }
   }
 
   &-grid {

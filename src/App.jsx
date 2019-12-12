@@ -53,19 +53,31 @@ const App = () => {
 
   return (
     <div className="app">
-      <img
-        src={logo}
-        className={
-          state.logoToggling === true
-            ? "app-logo-static"
-            : "app-logo-static animated jello"
-        }
-        alt="logo"
-        onMouseEnter={toggleLogo}
-        onMouseLeave={toggleLogo}
-        onClick={openNav}
-      />
-      <Nav closeNav={closeNav} />
+      <div className="app-header">
+        <img
+          src={logo}
+          className={
+            state.logoToggling === true
+              ? "app-logo-static"
+              : "app-logo-static animated jello"
+          }
+          alt="logo"
+          onMouseEnter={toggleLogo}
+          onMouseLeave={toggleLogo}
+          onClick={openNav}
+        />
+        <h1
+          className={
+            state.logoToggling
+              ? "app-menu-hidden"
+              : "app-menu animated zoomInDown"
+          }
+          onClick={openNav}
+        >
+          Menu
+        </h1>
+        <Nav closeNav={closeNav} />
+      </div>
 
       {state.loading ? (
         <Loading />
