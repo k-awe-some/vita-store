@@ -1,16 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import logo from "./logo.png";
 import { products } from "./data/store";
 import "./App.scss";
 
 import Card from "./components/Card/Card";
+import Loading from "./components/Loading/Loading";
 
 const App = () => {
   const [state, setState] = useState({
     logoToggling: true,
+    loading: true,
     cards: products
   });
+
+  useEffect(() => {
+    setTimeout(() => setState({ ...state, loading: false }), 3000);
+  }, []);
 
   const toggleLogo = () => {
     state.logoToggling === true
@@ -39,11 +45,15 @@ const App = () => {
       />
       <h1>VitaStore</h1>
 
-      <div className="app-grid">
-        {state.cards.map(card => (
-          <Card key={card.id} card={card} clickCard={clickCard} />
-        ))}
-      </div>
+      {state.loading ? (
+        <Loading />
+      ) : (
+        <div className="app-grid">
+          {state.cards.map(card => (
+            <Card key={card.id} card={card} clickCard={clickCard} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
