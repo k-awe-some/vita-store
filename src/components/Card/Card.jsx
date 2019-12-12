@@ -2,9 +2,9 @@ import React from "react";
 
 import "./Card.scss";
 
-const Card = () => {
+const Card = ({ card, clickCard }) => {
   return (
-    <div className="card">
+    <div className={card.animation} onClick={() => clickCard(card)}>
       <img src="juice.jpg" alt="vitamin juice" className="card-image" />
       <div className="card-container">
         <h3>

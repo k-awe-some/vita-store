@@ -1,22 +1,27 @@
 import React, { useState } from "react";
 
 import logo from "./logo.png";
+import { products } from "./data/store";
 import "./App.scss";
 
 import Card from "./components/Card/Card";
 
 const App = () => {
-  const [logoToggling, setLogoToggling] = useState(true);
-  const [cards, setCards] = useState([
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 }
-  ]);
+  const [state, setState] = useState({
+    logoToggling: true,
+    cards: products
+  });
 
   const toggleLogo = () => {
-    logoToggling === true ? setLogoToggling(false) : setLogoToggling(true);
+    state.logoToggling === true
+      ? setState({ ...state, logoToggling: false })
+      : setState({ ...state, logoToggling: true });
+  };
+
+  const clickCard = card => {
+    let animatedCards = state.cards;
+    animatedCards[card.id].animation = "card animated zoomOut";
+    setState({ ...state, cards: animatedCards });
   };
 
   return (
@@ -24,7 +29,7 @@ const App = () => {
       <img
         src={logo}
         className={
-          logoToggling === true
+          state.logoToggling === true
             ? "app-logo-static"
             : "app-logo-static animated jello"
         }
@@ -35,8 +40,8 @@ const App = () => {
       <h1>VitaStore</h1>
 
       <div className="app-grid">
-        {cards.map(card => (
-          <Card duration={150} key={card.id} />
+        {state.cards.map(card => (
+          <Card key={card.id} card={card} clickCard={clickCard} />
         ))}
       </div>
     </div>
