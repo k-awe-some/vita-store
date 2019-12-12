@@ -70,7 +70,7 @@ const App = () => {
           className={
             state.logoToggling
               ? "app-menu-hidden"
-              : "app-menu animated zoomInDown"
+              : "app-menu animated rotateIn"
           }
           onClick={openNav}
         >
