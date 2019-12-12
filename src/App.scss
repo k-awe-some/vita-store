@@ -7,15 +7,17 @@ body {
 }
 
 .app {
+  padding: 3rem;
+
   &-logo-animated {
     -webkit-animation: logo-spin infinite 20s linear;
     animation: logo-spin infinite 20s linear;
-    height: 5rem;
+    height: 8rem;
     cursor: pointer;
   }
 
   &-logo-static {
-    height: 5rem;
+    height: 8rem;
     cursor: pointer;
   }
 

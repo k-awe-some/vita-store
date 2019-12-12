@@ -31,6 +31,18 @@ const App = () => {
     setState({ ...state, cards: animatedCards });
   };
 
+  const showBack = card => {
+    let animatedCards = state.cards;
+    animatedCards[card.id].animation = "card card-flip";
+    setState({ ...state, cards: animatedCards });
+  };
+
+  const showFront = card => {
+    let animatedCards = state.cards;
+    animatedCards[card.id].animation = "card";
+    setState({ ...state, cards: animatedCards });
+  };
+
   const openNav = () => {
     document.getElementById("myNav").style.width = "100%";
   };
@@ -58,9 +70,14 @@ const App = () => {
       {state.loading ? (
         <Loading />
       ) : (
-        <div className="app-grid">
+        <div className="app-grid animated bounceInUp">
           {state.cards.map(card => (
-            <Card key={card.id} card={card} clickCard={clickCard} />
+            <Card
+              key={card.id}
+              card={card}
+              showBack={showBack}
+              showFront={showFront}
+            />
           ))}
         </div>
       )}
